@@ -32,6 +32,7 @@ import (
 	"github.com/dexidp/dex/connector/github"
 	"github.com/dexidp/dex/connector/gitlab"
 	"github.com/dexidp/dex/connector/google"
+	"github.com/dexidp/dex/connector/iamd"
 	"github.com/dexidp/dex/connector/keystone"
 	"github.com/dexidp/dex/connector/ldap"
 	"github.com/dexidp/dex/connector/linkedin"
@@ -537,6 +538,8 @@ var ConnectorsConfig = map[string]func() ConnectorConfig{
 	"atlassian-crowd": func() ConnectorConfig { return new(atlassiancrowd.Config) },
 	// Keep around for backwards compatibility.
 	"samlExperimental": func() ConnectorConfig { return new(saml.Config) },
+
+	"iamd": func() ConnectorConfig { return new(iamd.Config) },
 }
 
 // openConnector will parse the connector config and open the connector.
